@@ -12,7 +12,8 @@ jobs:
     steps:
     - name: Checkout source
       uses: actions/checkout@master
-      fetch-depth: 2
+      with:
+        fetch-depth: 2
 
     - name: Create tags
       id: get_version
