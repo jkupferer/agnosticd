@@ -27,7 +27,7 @@ jobs:
 
     - name: Deploy docs to ghpages
       uses: peaceiris/actions-gh-pages@v3
-      if: en.ACTIONS_DEPLOY_KEY != ''
+      if: env.ACTIONS_DEPLOY_KEY != ''
       env:
         ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
       with:
