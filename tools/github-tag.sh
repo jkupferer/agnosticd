@@ -34,6 +34,7 @@ function check_tag_exists {
 }
 
 git log
+git diff-tree --no-commit-id --name-only -r development
 
 for FILE in "$(git diff-tree --no-commit-id --name-only -r development | egrep '^ansible/configs/[a-zA-Z0-9_\-]+/releases/[a-zA-Z0-9_\-]+.txt$')"
 do
