@@ -1,0 +1,21 @@
+---
+name: Tag Release
+on:
+  push:
+    branches:
+    - development
+    paths:
+    - ansible/configs/*/releases.yml
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout source
+      uses: actions/checkout@master
+
+    - name: Create tags
+      id: get_version
+      env:
+        GIT_DEPLOY_KEY: "${{ secrets.GIT_DEPLOY_KEY }}"
+      run: |
+        tools/github-tag.sh
