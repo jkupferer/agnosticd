@@ -33,6 +33,8 @@ function check_tag_exists {
   die "${TAG} commit mismatch ${COMMIT} != ${TAG_COMMIT}"
 }
 
+git log
+
 for FILE in "$(git diff-tree --no-commit-id --name-only -r development | egrep '^ansible/configs/[a-zA-Z0-9_\-]+/releases/[a-zA-Z0-9_\-]+.txt$')"
 do
   VERSION="$(tail -n1 ${FILE})"
